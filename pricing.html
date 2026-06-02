@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pricing — AI SOC</title>
+<meta name="description" content="Self-hosted pricing for AI SOC. Free Community edition for single-node deployments, Professional at $299/month, and Enterprise for large-scale air-gapped environments." />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/tokens.css" />
+<link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-aurora"></div>
+
+<header class="site-nav">
+  <div class="container">
+    <a class="brand" href="index.html"><span class="logo-mark"><span></span></span>AI&nbsp;SOC</a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="pricing.html" class="active" aria-current="page">Pricing</a>
+      <a href="docs.html">Docs</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-signin" href="docs.html">Sign in</a>
+      <a class="btn btn--primary" href="downloads.html" style="padding:9px 16px;font-size:13.5px">Download Free</a>
+      <button class="nav-burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-drawer">
+  <a href="index.html#features">Features</a>
+  <a href="downloads.html">Downloads</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="docs.html">Docs</a>
+  <a class="btn btn--primary" href="downloads.html">Download Free</a>
+</div>
+
+<main class="page">
+<!-- HERO + TOGGLE -->
+<section class="page-hero" style="padding-bottom:30px">
+  <canvas data-nodegraph data-density="0.00008" class="ng"></canvas>
+  <div class="container" style="position:relative;z-index:2;text-align:center">
+    <div class="reveal">
+      <span class="pill pill--violet"><span class="dot" style="background:var(--violet);box-shadow:0 0 10px var(--violet)"></span>Open core · self-hosted</span>
+      <h1 class="display-h" style="font-size:clamp(36px,4.6vw,54px);font-weight:700;letter-spacing:-0.035em;margin:22px 0 0">Simple, <span class="grad-text">transparent pricing</span></h1>
+      <p class="lead" style="color:var(--text-muted);font-size:18px;max-width:54ch;margin:18px auto 0">
+        Start free on a single node. Scale to enterprise when you're ready — always self-hosted, always air-gap ready.
+      </p>
+      <div style="margin-top:30px;display:flex;justify-content:center;align-items:center;gap:14px">
+        <div class="toggle-wrap" data-billing-toggle>
+          <button class="toggle-opt active" data-mode="monthly">Monthly</button>
+          <button class="toggle-opt" data-mode="annual">Annual</button>
+        </div>
+        <span class="save-pill">Save 20% annually</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING CARDS -->
+<section class="container" style="padding-bottom:30px">
+  <div class="price-grid">
+    <!-- Community -->
+    <article class="price-card reveal">
+      <div class="price-name">Community</div>
+      <div class="price-amt"><span data-price="$0" data-annual="$0">$0</span></div>
+      <div class="mono" style="color:var(--text-dim);font-size:13px;margin-bottom:14px">Free forever</div>
+      <div class="price-desc">For single-node evaluations, labs, and homelab deployments.</div>
+      <a class="btn btn--ghost btn--block" style="margin-top:22px" href="downloads.html">Download Free</a>
+      <ul class="price-features">
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>Single node</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>1 analyst seat</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>500 EPS throughput</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>Community support</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>GitHub only</li>
+      </ul>
+    </article>
+
+    <!-- Professional -->
+    <article class="price-card popular grad-border reveal" style="border-radius:var(--r-lg)">
+      <span class="popular-badge">MOST POPULAR</span>
+      <div class="price-name" style="color:var(--violet-bright)">Professional</div>
+      <div class="price-amt"><span data-price="$299" data-annual="$239">$299</span><span class="per" data-per>/month</span></div>
+      <div class="price-desc">For active SOC teams running production workloads across multiple nodes.</div>
+      <a class="btn btn--violet btn--block" style="margin-top:22px" href="#">Start Free Trial</a>
+      <ul class="price-features">
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>Multi-node deployment</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>5 analyst seats</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>1,100 EPS throughput</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>Email support</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>Threat intel integrations</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>HITL dashboard</li>
+      </ul>
+    </article>
+
+    <!-- Enterprise -->
+    <article class="price-card reveal">
+      <div class="price-name">Enterprise</div>
+      <div class="price-amt" style="font-size:38px">Custom</div>
+      <div class="mono" style="color:var(--text-dim);font-size:13px;margin-bottom:14px">annual contract</div>
+      <div class="price-desc">For regulated, large-scale, and fully air-gapped enterprise deployments.</div>
+      <a class="btn btn--ghost btn--block" style="margin-top:22px" href="#">Contact Sales</a>
+      <ul class="price-features">
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>Unlimited nodes</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>Unlimited analyst seats</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>10,000+ EPS throughput</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>Dedicated support</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>Custom integrations</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg>SLA + on-prem deployment</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section-pad container">
+  <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 40px">
+    <span class="eyebrow">Compare plans</span>
+    <h2 class="h-section" style="font-size:32px">Feature comparison</h2>
+  </div>
+  <div class="glass reveal" style="padding:8px 12px;overflow-x:auto">
+    <table class="cmp">
+      <thead>
+        <tr><th>Feature</th><th>Community</th><th class="col-pop">Professional</th><th>Enterprise</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Deployment nodes</td><td>1</td><td class="col-pop">Multi-node</td><td>Unlimited</td></tr>
+        <tr><td>Analyst seats</td><td>1</td><td class="col-pop">5</td><td>Unlimited</td></tr>
+        <tr><td>EPS throughput</td><td>500</td><td class="col-pop">1,100</td><td>10,000+</td></tr>
+        <tr><td>8-agent pipeline</td><td class="yes"><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg></td><td class="col-pop yes"><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg></td><td class="yes"><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg></td></tr>
+        <tr><td>HITL dashboard</td><td class="no">—</td><td class="col-pop yes"><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg></td><td class="yes"><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg></td></tr>
+        <tr><td>Threat intel integrations</td><td class="no">—</td><td class="col-pop yes"><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg></td><td class="yes"><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg></td></tr>
+        <tr><td>Custom integrations</td><td class="no">—</td><td class="col-pop no">—</td><td class="yes"><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg></td></tr>
+        <tr><td>SLA</td><td class="no">—</td><td class="col-pop no">—</td><td class="yes"><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></svg></td></tr>
+        <tr><td>Support</td><td>Community</td><td class="col-pop">Email</td><td>Dedicated</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ALL PLANS INCLUDE -->
+<section class="container" style="padding-bottom:70px">
+  <div class="reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px" id="incl">
+    <div class="glass" style="padding:24px;text-align:center"><div style="font-size:15px;font-weight:600">Open-source core</div><div style="color:var(--text-muted);font-size:13px;margin-top:6px">Apache-2.0 licensed pipeline</div></div>
+    <div class="glass" style="padding:24px;text-align:center"><div style="font-size:15px;font-weight:600">Air-gap ready</div><div style="color:var(--text-muted);font-size:13px;margin-top:6px">Zero outbound connectivity</div></div>
+    <div class="glass" style="padding:24px;text-align:center"><div style="font-size:15px;font-weight:600">No telemetry</div><div style="color:var(--text-muted);font-size:13px;margin-top:6px">Nothing leaves your network</div></div>
+    <div class="glass" style="padding:24px;text-align:center"><div style="font-size:15px;font-weight:600">Self-hosted</div><div style="color:var(--text-muted);font-size:13px;margin-top:6px">You own the deployment</div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-pad" style="background:rgba(8,8,13,0.5);border-top:1px solid var(--border-soft)">
+  <div class="container" style="max-width:820px">
+    <div class="reveal" style="text-align:center;margin-bottom:36px">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="h-section" style="font-size:32px">Common questions</h2>
+    </div>
+    <div class="accordion reveal">
+      <div class="acc-item open"><button class="acc-head"><span>Can I run AI SOC fully air-gapped?</span><span class="acc-icon"></span></button><div class="acc-body"><div class="acc-body-inner">Yes — that's the core design. All inference runs locally via vLLM, RAG retrieval uses on-prem ChromaDB, and there is no telemetry or license phone-home. Once installed, AI SOC needs zero outbound connectivity to operate.</div></div></div>
+      <div class="acc-item"><button class="acc-head"><span>How does licensing work for paid tiers in an air gap?</span><span class="acc-icon"></span></button><div class="acc-body"><div class="acc-body-inner">Professional and Enterprise use offline license files issued at purchase. You drop the signed license into the deployment — no internet validation is required, and the file is valid for your full contract term.</div></div></div>
+      <div class="acc-item"><button class="acc-head"><span>Is the Community edition really free forever?</span><span class="acc-icon"></span></button><div class="acc-body"><div class="acc-body-inner">Yes. The open-source core is Apache-2.0 and free for single-node use with no time limit. Paid tiers add multi-node orchestration, more seats, higher throughput, and support.</div></div></div>
+      <div class="acc-item"><button class="acc-head"><span>What support is included with each plan?</span><span class="acc-icon"></span></button><div class="acc-body"><div class="acc-body-inner">Community relies on GitHub Discussions and issues. Professional includes email support with next-business-day response. Enterprise adds a dedicated support contact, a defined SLA, and onboarding assistance.</div></div></div>
+      <div class="acc-item"><button class="acc-head"><span>Can I upgrade or downgrade later?</span><span class="acc-icon"></span></button><div class="acc-body"><div class="acc-body-inner">Anytime. Your configuration and data stay on your infrastructure, so changing tiers is just a license swap — no migration or re-deployment required.</div></div></div>
+      <div class="acc-item"><button class="acc-head"><span>Do you offer on-prem deployment assistance?</span><span class="acc-icon"></span></button><div class="acc-body"><div class="acc-body-inner">Enterprise plans include hands-on deployment support, including air-gapped installation, GPU sizing guidance, and Wazuh/SOAR integration with your existing tooling.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="container" style="padding:80px 0 90px">
+  <div class="cta-strip reveal">
+    <canvas data-nodegraph data-density="0.00006" class="ng" style="opacity:0.5"></canvas>
+    <div style="position:relative;z-index:2">
+      <h2 style="font-size:clamp(26px,3.4vw,36px);font-weight:700;letter-spacing:-0.025em;margin:0">Ready to deploy?</h2>
+      <p class="sub-section" style="margin:14px auto 0">Download the Community edition free, or talk to us about Enterprise.</p>
+      <div style="display:flex;gap:13px;justify-content:center;margin-top:26px;flex-wrap:wrap">
+        <a class="btn btn--primary btn--lg" href="downloads.html">Download Free</a>
+        <a class="btn btn--ghost btn--lg" href="#">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand" href="index.html" style="margin-bottom:14px"><span class="logo-mark"><span></span></span>AI&nbsp;SOC</a>
+        <p style="color:var(--text-muted);font-size:14px;max-width:34ch;margin:0">Autonomous, air-gapped, multi-agent Security Operations Centre for enterprise deployments.</p>
+        <div class="footer-badges" style="margin-top:18px"><span class="pill"><span class="dot" style="background:var(--success);box-shadow:0 0 8px var(--success)"></span>v1.0.0 Stable</span><span class="pill pill--cyan">Apache-2.0</span></div>
+      </div>
+      <div class="footer-col"><h4>Product</h4><a href="index.html#features">Features</a><a href="downloads.html">Downloads</a><a href="requirements.html">Requirements</a><a href="pricing.html">Pricing</a></div>
+      <div class="footer-col"><h4>Developers</h4><a href="docs.html">Documentation</a><a href="docs.html#architecture">Architecture</a><a href="docs.html#api">API Reference</a><a href="https://github.com">GitHub</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#">Security</a><a href="#">Compliance</a><a href="https://github.com">Discussions</a><a href="#">Contact Sales</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="meta">© 2026 AI SOC. Open-source core under Apache-2.0.</span>
+      <div class="footer-badges"><span class="pill mono">no telemetry</span></div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media (max-width: 980px) { #incl { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 560px) { #incl { grid-template-columns: 1fr !important; } }
+</style>
+<script src="assets/nodegraph.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
