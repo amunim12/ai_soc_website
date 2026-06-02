@@ -301,7 +301,7 @@ body.page-ready .summary-card:nth-child(4) { animation-delay: 270ms; }
 }
 
 /* ---------------- TESTIMONIALS ---------------- */
-.testimonial-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 16px; align-items: stretch; }
+.testimonial-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 16px; align-items: start; }
 .testimonial-card {
   padding: 0;
   border-radius: 8px;
@@ -310,7 +310,6 @@ body.page-ready .summary-card:nth-child(4) { animation-delay: 270ms; }
   position: relative;
   overflow: hidden;
 }
-.testimonial-card:nth-child(1) { grid-row: span 2; }
 .testimonial-head {
   display: flex;
   align-items: center;
