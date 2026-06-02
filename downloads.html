@@ -19,26 +19,26 @@
 <header class="site-nav">
   <div class="container">
     <a class="brand" href="index.html"><span class="logo-mark"><span></span></span>AI&nbsp;SOC</a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Main">
       <a href="index.html#features">Features</a>
       <a href="downloads.html" class="active" aria-current="page">Downloads</a>
       <a href="pricing.html">Pricing</a>
       <a href="docs.html">Docs</a>
     </nav>
     <div class="nav-right">
-      <a class="nav-signin" href="docs.html">Sign in</a>
-      <a class="btn btn--primary" href="downloads.html" style="padding:9px 16px;font-size:13.5px">Download Free</a>
+      <a class="nav-signin" href="https://github.com/amunim12/ai_soc_website">GitHub</a>
+      <a class="btn btn--primary btn--sm" href="downloads.html">Download Free</a>
       <button class="nav-burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
 </header>
-<div class="mobile-drawer">
+<nav class="mobile-drawer" aria-label="Mobile menu">
   <a href="index.html#features">Features</a>
   <a href="downloads.html">Downloads</a>
   <a href="pricing.html">Pricing</a>
   <a href="docs.html">Docs</a>
   <a class="btn btn--primary" href="downloads.html">Download Free</a>
-</div>
+</nav>
 
 <main class="page">
 <!-- HERO -->
@@ -47,7 +47,7 @@
   <div class="container" style="position:relative;z-index:2;text-align:center">
     <div class="reveal">
       <span class="pill pill--success"><span class="dot" style="background:var(--success)"></span>v1.0.0 - Stable - released May 2026</span>
-      <h1 class="display-h" style="font-size:clamp(38px,5vw,58px);font-weight:700;letter-spacing:-0.035em;margin:22px 0 0">Download <span class="grad-text">AI SOC</span></h1>
+      <h1 class="display-h" style="font-size:clamp(38px,5vw,58px);font-weight:700;letter-spacing:-0.035em;margin:22px 0 0">Download <span style="color:var(--cyan)">AI SOC</span></h1>
       <p class="lead" style="color:var(--text-muted);font-size:18px;max-width:56ch;margin:18px auto 0">
         One installer. The full autonomous SOC stack (Electron UI, FastAPI backend, and the Docker Compose pipeline) packaged for your platform.
       </p>
@@ -64,9 +64,10 @@
       <div class="os-icon"><svg viewBox="0 0 24 24"><path d="M3 5.5 10.5 4.3v7.2H3V5.5Zm0 13L10.5 19.7v-7.1H3v6Zm8.5 1.3L21 21V12.5h-9.5v7.3Zm0-15.6V11.5H21V3l-9.5 1.2Z"/></svg></div>
       <div class="dl-os">Windows x64</div>
       <div class="dl-meta">.exe installer - 248 MB</div>
-      <a class="btn btn--primary btn--block" style="margin-top:20px" href="#">
+      <a class="btn btn--primary btn--block btn--unavailable" style="margin-top:20px" href="#" aria-disabled="true" title="Download link will be available at release. Check back soon." onclick="return false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
         Download .exe
+        <span class="btn-note">· link pending</span>
       </a>
       <div class="copy-field">
         <span class="mono" style="color:var(--text-dim);font-size:10.5px;flex-shrink:0">SHA256</span>

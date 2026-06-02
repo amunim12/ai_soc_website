@@ -20,26 +20,26 @@
 <header class="site-nav">
   <div class="container">
     <a class="brand" href="index.html"><span class="logo-mark"><span></span></span>AI&nbsp;SOC</a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Main">
       <a href="index.html#features">Features</a>
       <a href="downloads.html">Downloads</a>
       <a href="pricing.html">Pricing</a>
       <a href="docs.html">Docs</a>
     </nav>
     <div class="nav-right">
-      <a class="nav-signin" href="docs.html">Sign in</a>
-      <a class="btn btn--primary" href="downloads.html" style="padding:9px 16px;font-size:13.5px">Download Free</a>
+      <a class="nav-signin" href="https://github.com/amunim12/ai_soc_website">GitHub</a>
+      <a class="btn btn--primary btn--sm" href="downloads.html">Download Free</a>
       <button class="nav-burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
 </header>
-<div class="mobile-drawer">
+<nav class="mobile-drawer" aria-label="Mobile menu">
   <a href="index.html#features">Features</a>
   <a href="downloads.html">Downloads</a>
   <a href="pricing.html">Pricing</a>
   <a href="docs.html">Docs</a>
   <a class="btn btn--primary" href="downloads.html">Download Free</a>
-</div>
+</nav>
 
 <main class="page">
 <!-- ============ HERO (split) ============ -->
@@ -52,9 +52,9 @@
         <h1 class="hero-h1">
           Autonomous threat response.<br><span class="grad-text">Zero internet required.</span>
         </h1>
-        <p style="color:var(--text-muted);font-size:17.5px;line-height:1.68;margin-top:22px;max-width:50ch">
+        <p class="hero-body">
           Deploy a complete Security Operations Centre inside your air gap. Eight AI agents run
-          Wazuh&nbsp;→&nbsp;Kafka&nbsp;→&nbsp;response in parallel - escalating to humans only when
+          Wazuh&nbsp;→&nbsp;Kafka&nbsp;→&nbsp;response in parallel — escalating to humans only when
           confidence drops below 85%.
         </p>
         <div class="hero-ctas">
@@ -111,7 +111,7 @@
 </section>
 
 <!-- ============ STATS BAR ============ -->
-<section class="container" style="margin-top:18px">
+<section class="container section-stats">
   <div class="stats-bar reveal">
     <div class="stat-cell"><div class="stat-num" data-count="1100" data-suffix="+">1100+</div><div class="stat-label">Events per second</div></div>
     <div class="stat-cell"><div class="stat-num" data-count="8">8</div><div class="stat-label">Parallel AI agents</div></div>
@@ -173,10 +173,9 @@
 </section>
 
 <!-- ============ ARCHITECTURE ============ -->
-<section class="section-pad" style="background:rgba(8,8,13,0.5);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft)">
+<section class="section-pad section-arch">
   <div class="container">
     <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto 52px">
-      <span class="eyebrow">Architecture</span>
       <h2 class="h-section">From raw event to<br>resolved incident</h2>
       <p class="sub-section" style="margin-left:auto;margin-right:auto">A streaming backbone keeps the pipeline fast and decoupled: detections in, autonomous response out.</p>
     </div>
@@ -191,7 +190,7 @@
           <span class="arch-chip">4.7+</span>
         </div>
       </div>
-      <div class="arch-conn"><svg viewBox="0 0 60 20" preserveAspectRatio="none"><defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#00d4ff"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><line x1="2" y1="10" x2="50" y2="10" stroke="url(#g1)" stroke-width="1.5"/><circle cx="50" cy="10" r="3" fill="#7c3aed"/><circle class="flow" cx="2" cy="10" r="2.5" fill="#00d4ff"/></svg></div>
+      <div class="arch-conn"><svg viewBox="0 0 60 20" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#00d4ff"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><line x1="2" y1="10" x2="50" y2="10" stroke="url(#g1)" stroke-width="1.5"/><circle cx="50" cy="10" r="3" fill="#7c3aed"/><circle class="flow" cx="2" cy="10" r="2.5" fill="#00d4ff"/></svg></div>
       <div class="arch-node">
         <div class="arch-stage">Stream</div>
         <div class="arch-name">Kafka KRaft</div>
@@ -201,7 +200,7 @@
           <span class="arch-chip">1,100 eps</span>
         </div>
       </div>
-      <div class="arch-conn"><svg viewBox="0 0 60 20" preserveAspectRatio="none"><line x1="2" y1="10" x2="50" y2="10" stroke="url(#g1)" stroke-width="1.5"/><circle cx="50" cy="10" r="3" fill="#7c3aed"/><circle class="flow" cx="2" cy="10" r="2.5" fill="#00d4ff"/></svg></div>
+      <div class="arch-conn"><svg viewBox="0 0 60 20" preserveAspectRatio="none" aria-hidden="true"><line x1="2" y1="10" x2="50" y2="10" stroke="url(#g1)" stroke-width="1.5"/><circle cx="50" cy="10" r="3" fill="#7c3aed"/><circle class="flow" cx="2" cy="10" r="2.5" fill="#00d4ff"/></svg></div>
       <div class="arch-node arch-active">
         <div class="arch-stage">Reason</div>
         <div class="arch-name">AI Pipeline</div>
@@ -212,7 +211,7 @@
           <span class="arch-chip">rag</span>
         </div>
       </div>
-      <div class="arch-conn"><svg viewBox="0 0 60 20" preserveAspectRatio="none"><line x1="2" y1="10" x2="50" y2="10" stroke="url(#g1)" stroke-width="1.5"/><circle cx="50" cy="10" r="3" fill="#7c3aed"/><circle class="flow" cx="2" cy="10" r="2.5" fill="#00d4ff"/></svg></div>
+      <div class="arch-conn"><svg viewBox="0 0 60 20" preserveAspectRatio="none" aria-hidden="true"><line x1="2" y1="10" x2="50" y2="10" stroke="url(#g1)" stroke-width="1.5"/><circle cx="50" cy="10" r="3" fill="#7c3aed"/><circle class="flow" cx="2" cy="10" r="2.5" fill="#00d4ff"/></svg></div>
       <div class="arch-node">
         <div class="arch-stage">Respond</div>
         <div class="arch-name">Shuffle SOAR</div>
@@ -284,7 +283,7 @@
     <h2 class="h-section">Built for teams that can't compromise</h2>
   </div>
   <div class="testimonial-grid">
-    <figure class="testimonial-card reveal" style="margin:0">
+    <figure class="testimonial-card reveal" style="margin:0" aria-label="Testimonial: Director of Security Engineering, defense-integrator.internal">
       <div class="testimonial-head">
         <span class="testimonial-badge badge-classified">CLASSIFIED NET</span>
         <span class="testimonial-stamp">SEC-LOG 01</span>
@@ -298,7 +297,7 @@
         <div class="testimonial-org">defense-integrator.internal</div>
       </div>
     </figure>
-    <figure class="testimonial-card reveal" style="margin:0">
+    <figure class="testimonial-card reveal" style="margin:0" aria-label="Testimonial: Lead SOC Analyst, critical-infra.gov">
       <div class="testimonial-head">
         <span class="testimonial-badge badge-gov">GOV / FEDRAMP</span>
         <span class="testimonial-stamp">QUEUE 02</span>
@@ -312,7 +311,7 @@
         <div class="testimonial-org">critical-infra.gov</div>
       </div>
     </figure>
-    <figure class="testimonial-card reveal" style="margin:0">
+    <figure class="testimonial-card reveal" style="margin:0" aria-label="Testimonial: CISO, tier-1-bank.internal">
       <div class="testimonial-head">
         <span class="testimonial-badge">SOC 2 TYPE II</span>
         <span class="testimonial-stamp">REVIEW 03</span>
@@ -333,7 +332,6 @@
 <section class="container" style="padding-bottom:90px">
   <div class="cta-strip reveal">
     <div style="position:relative;z-index:2">
-      <span class="eyebrow" style="display:block;margin-bottom:16px">Get started</span>
       <h2 class="h-section" style="font-size:clamp(28px,3.6vw,42px);margin:0">Stand up your autonomous SOC today</h2>
       <p class="sub-section" style="margin:14px auto 0">Free for single-node deployments. Three commands from download to running agents.</p>
       <div class="cta-terminal">
@@ -400,8 +398,10 @@
 
 <style>
   #pipe .pipe-row { display:flex; align-items:center; gap:9px; margin-bottom:9px; }
-  .flow { animation: flowMove 1.8s linear infinite; }
   @keyframes flowMove { from { transform: translateX(0); } to { transform: translateX(48px); } }
+  @media (prefers-reduced-motion: no-preference) {
+    .flow { animation: flowMove 1.8s linear infinite; }
+  }
 </style>
 
 <script src="assets/nodegraph.js"></script>

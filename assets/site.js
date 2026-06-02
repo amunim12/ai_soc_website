@@ -215,10 +215,11 @@
     ];
     let i = 0;
     const stamp = () => { const d = new Date(); return d.toTimeString().slice(0, 8); };
+    const prefersMotion = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
     function row(a) {
       const el = document.createElement("div");
       el.className = "alert-row";
-      el.style.animation = "fadeSlide .45s ease";
+      if (prefersMotion) el.style.animation = "fadeSlide .45s ease";
       el.innerHTML =
         `<div class="sev" style="background:${a.c};box-shadow:0 0 10px ${a.c}"></div>
          <div style="flex:1;min-width:0">
@@ -242,8 +243,8 @@
 
   /* ---- dot pulse on status indicators ---- */
   const st2 = document.createElement("style");
-  st2.textContent = ".dot{animation:dot-pulse 2.4s ease-in-out infinite}" +
-    "@keyframes dot-pulse{0%,100%{opacity:1}50%{opacity:.5}}";
+  st2.textContent = "@keyframes dot-pulse{0%,100%{opacity:1}50%{opacity:.5}}" +
+    "@media(prefers-reduced-motion:no-preference){.dot{animation:dot-pulse 2.4s ease-in-out infinite}}";
   document.head.appendChild(st2);
 
   /* ---- CTA terminal: reveal output lines on scroll-enter ---- */

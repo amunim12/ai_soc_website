@@ -66,7 +66,7 @@
 
   /* Layout */
   --maxw: 1200px;
-  --nav-h: 64px;
+  --nav-h: 76px;
 }
 
 /* ---- Reset ---- */
@@ -214,7 +214,10 @@ img { max-width: 100%; display: block; }
 }
 .btn--violet:hover { transform: translateY(-1px); filter: brightness(1.06); }
 .btn--lg { padding: 13px 24px; font-size: var(--text-base); }
+.btn--sm { padding: 8px 15px; font-size: var(--text-sm); }
 .btn--block { width: 100%; }
+.btn--unavailable { opacity: 0.55; cursor: not-allowed; pointer-events: none; }
+.btn--unavailable .btn-note { font-size: var(--text-xs); opacity: 0.75; margin-left: 2px; }
 
 /* Glass card */
 .glass {
@@ -253,18 +256,6 @@ img { max-width: 100%; display: block; }
   margin: 14px 0 0;
   line-height: 1.7;
 }
-
-/* Animated gradient border (for highlighted cards) */
-@property --angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
-.grad-border {
-  position: relative; isolation: isolate;
-}
-.grad-border::before {
-  content: ""; position: absolute; inset: -1px; border-radius: inherit; z-index: -1;
-  background: conic-gradient(from var(--angle), var(--cyan), var(--violet), var(--cyan));
-  animation: spin-angle 6s linear infinite;
-}
-@keyframes spin-angle { to { --angle: 360deg; } }
 
 /* Scroll reveal */
 @media (prefers-reduced-motion: no-preference) {
