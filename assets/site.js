@@ -9,6 +9,20 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
+  requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add("page-ready")));
+
+  /* ---- ambient pointer drift ---- */
+  const root = document.documentElement;
+  let pointerTimer = 0;
+  window.addEventListener("pointermove", (e) => {
+    if (pointerTimer) return;
+    pointerTimer = requestAnimationFrame(() => {
+      root.style.setProperty("--mx", `${(e.clientX / window.innerWidth) * 100}%`);
+      root.style.setProperty("--my", `${(e.clientY / window.innerHeight) * 100}%`);
+      pointerTimer = 0;
+    });
+  }, { passive: true });
+
   /* ---- nav scroll state ---- */
   const nav = $(".site-nav");
   if (nav) {
@@ -19,32 +33,104 @@
   /* ---- mobile drawer ---- */
   const burger = $(".nav-burger"), drawer = $(".mobile-drawer");
   if (burger && drawer) {
+    burger.setAttribute("aria-expanded", "false");
     burger.addEventListener("click", () => {
       const open = drawer.classList.toggle("open");
       document.body.style.overflow = open ? "hidden" : "";
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     $$(".mobile-drawer a", drawer).forEach((a) =>
-      a.addEventListener("click", () => { drawer.classList.remove("open"); document.body.style.overflow = ""; })
+      a.addEventListener("click", () => {
+        drawer.classList.remove("open");
+        document.body.style.overflow = "";
+        burger.setAttribute("aria-expanded", "false");
+      })
     );
+    window.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape" || !drawer.classList.contains("open")) return;
+      drawer.classList.remove("open");
+      document.body.style.overflow = "";
+      burger.setAttribute("aria-expanded", "false");
+    });
   }
 
-  /* ---- scroll reveal (rAF-based — reliable everywhere) ---- */
+  /* ---- tabs ---- */
+  $$("[data-tabs]").forEach((tabs) => {
+    const buttons = $$(".tab-btn", tabs);
+    const panels = $$(".tab-panel", tabs);
+    const activate = (btn) => {
+      const target = $(btn.dataset.tabTarget, tabs) || $(btn.dataset.tabTarget);
+      buttons.forEach((b) => {
+        const active = b === btn;
+        b.classList.toggle("active", active);
+        b.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      panels.forEach((panel) => panel.classList.toggle("active", panel === target));
+    };
+    buttons.forEach((btn, i) => {
+      btn.addEventListener("click", () => activate(btn));
+      btn.addEventListener("keydown", (e) => {
+        if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+        e.preventDefault();
+        const dir = e.key === "ArrowRight" ? 1 : -1;
+        const next = buttons[(i + dir + buttons.length) % buttons.length];
+        next.focus();
+        activate(next);
+      });
+    });
+  });
+
+  /* ---- hero word-by-word entrance ---- */
+  const heroH1 = $(".hero-h1");
+  if (heroH1) {
+    heroH1.querySelectorAll("br").forEach((br) => br.replaceWith(" "));
+    const spans = heroH1.querySelectorAll(".grad-text");
+    const walker = document.createTreeWalker(heroH1, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    let node;
+    while ((node = walker.nextNode())) textNodes.push(node);
+    textNodes.forEach((tn) => {
+      const parent = tn.parentNode;
+      if (parent.classList && parent.classList.contains("grad-text")) return;
+      const frag = document.createDocumentFragment();
+      tn.textContent.split(/(\s+)/).forEach((part) => {
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+        if (!part) return;
+        const w = document.createElement("span");
+        w.className = "word";
+        w.textContent = part;
+        frag.appendChild(w);
+      });
+      parent.replaceChild(frag, tn);
+    });
+    spans.forEach((s) => {
+      const w = document.createElement("span");
+      w.className = "word";
+      w.style.display = "inline";
+      s.parentNode.insertBefore(w, s);
+      w.appendChild(s);
+    });
+    const allWords = $$(".word", heroH1);
+    allWords.forEach((w, i) => { w.style.transitionDelay = `${80 + i * 55}ms`; });
+    requestAnimationFrame(() => requestAnimationFrame(() => heroH1.classList.add("hero-animated")));
+  }
+
+  /* ---- scroll reveal ---- */
   const reveals = $$(".reveal");
-  reveals.forEach((el, i) => { el.style.transitionDelay = `${(i % 6) * 55}ms`; });
   function checkReveals() {
     const vh = window.innerHeight || document.documentElement.clientHeight;
     for (const el of reveals) {
       if (el.dataset.shown) continue;
       const r = el.getBoundingClientRect();
-      if (r.top < vh * 0.9 && r.bottom > -10) { el.dataset.shown = "1"; el.classList.add("in"); }
+      if (r.top < vh * 0.88 && r.bottom > -10) { el.dataset.shown = "1"; el.classList.add("in"); }
     }
   }
   checkReveals();
   window.addEventListener("scroll", checkReveals, { passive: true });
   window.addEventListener("resize", checkReveals, { passive: true });
   window.addEventListener("load", checkReveals);
-  setTimeout(checkReveals, 400);
-  setTimeout(() => reveals.forEach((el) => el.classList.add("in")), 2600);
+  setTimeout(checkReveals, 300);
+  setTimeout(() => reveals.forEach((el) => el.classList.add("in")), 2400);
 
   /* ---- accordion ---- */
   $$(".accordion").forEach((acc) => {
@@ -129,10 +215,11 @@
     ];
     let i = 0;
     const stamp = () => { const d = new Date(); return d.toTimeString().slice(0, 8); };
+    const prefersMotion = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
     function row(a) {
       const el = document.createElement("div");
       el.className = "alert-row";
-      el.style.animation = "fadeSlide .45s ease";
+      if (prefersMotion) el.style.animation = "fadeSlide .45s ease";
       el.innerHTML =
         `<div class="sev" style="background:${a.c};box-shadow:0 0 10px ${a.c}"></div>
          <div style="flex:1;min-width:0">
@@ -146,13 +233,36 @@
       const a = POOL[i % POOL.length]; i++;
       feed.insertBefore(row(a), feed.firstChild);
       while (feed.children.length > 5) feed.removeChild(feed.lastChild);
-    }, 2600);
+    }, 2000);
   }
 
   /* keyframe for ticker rows */
   const st = document.createElement("style");
   st.textContent = "@keyframes fadeSlide{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}";
   document.head.appendChild(st);
+
+  /* ---- dot pulse on status indicators ---- */
+  const st2 = document.createElement("style");
+  st2.textContent = "@keyframes dot-pulse{0%,100%{opacity:1}50%{opacity:.5}}" +
+    "@media(prefers-reduced-motion:no-preference){.dot{animation:dot-pulse 2.4s ease-in-out infinite}}";
+  document.head.appendChild(st2);
+
+  /* ---- CTA terminal: reveal output lines on scroll-enter ---- */
+  const ctaTerminal = $(".cta-terminal");
+  if (ctaTerminal) {
+    const outputLines = $$(".t-output", ctaTerminal);
+    outputLines.forEach((l) => { l.style.opacity = "0"; l.style.transform = "translateX(-6px)"; l.style.transition = "opacity .35s ease, transform .35s ease"; });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        outputLines.forEach((l, i) => {
+          setTimeout(() => { l.style.opacity = "1"; l.style.transform = "none"; }, 400 + i * 200);
+        });
+        obs.disconnect();
+      });
+    }, { threshold: 0.5 });
+    obs.observe(ctaTerminal);
+  }
 
   /* ---- animated count-up for stats (scroll-based) ---- */
   const counters = $$("[data-count]").map((el) => ({ el, done: false }));

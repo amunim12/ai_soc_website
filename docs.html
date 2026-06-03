@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Docs — Quickstart — AI SOC</title>
+<title>Docs - Quickstart - AI SOC</title>
 <meta name="description" content="AI SOC quickstart guide. Go from download to first autonomous threat response in under 15 minutes. Covers Docker Compose setup, Wazuh configuration, and the 8-agent pipeline." />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,26 +19,26 @@
 <header class="site-nav">
   <div class="container">
     <a class="brand" href="index.html"><span class="logo-mark"><span></span></span>AI&nbsp;SOC</a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Main">
       <a href="index.html#features">Features</a>
       <a href="downloads.html">Downloads</a>
       <a href="pricing.html">Pricing</a>
       <a href="docs.html" class="active" aria-current="page">Docs</a>
     </nav>
     <div class="nav-right">
-      <a class="nav-signin" href="https://github.com">Edit on GitHub</a>
-      <a class="btn btn--primary" href="downloads.html" style="padding:9px 16px;font-size:13.5px">Download Free</a>
+      <a class="nav-signin" href="https://github.com/amunim12/ai_soc_website">Edit on GitHub</a>
+      <a class="btn btn--primary btn--sm" href="downloads.html">Download Free</a>
       <button class="nav-burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
 </header>
-<div class="mobile-drawer">
+<nav class="mobile-drawer" aria-label="Mobile menu">
   <a href="index.html#features">Features</a>
   <a href="downloads.html">Downloads</a>
   <a href="pricing.html">Pricing</a>
   <a href="docs.html">Docs</a>
   <a class="btn btn--primary" href="downloads.html">Download Free</a>
-</div>
+</nav>
 
 <div class="docs-layout">
   <!-- SIDEBAR -->
@@ -72,7 +72,7 @@
   <main class="docs-main">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
       <span class="pill pill--cyan"><span class="dot"></span>v1.0.0 docs</span>
-      <a class="btn btn--ghost" href="https://github.com" style="padding:8px 14px;font-size:13px">
+      <a class="btn btn--ghost" href="https://github.com/amunim12/ai_soc_website" style="padding:8px 14px;font-size:13px">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5A10.5 10.5 0 0 0 8.7 22c.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.7-1.2-4.7-5.2 0-1.1.4-2 1-2.8-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.7.8 1 1.7 1 2.8 0 4-2.4 4.9-4.7 5.2.4.3.7 1 .7 2v3c0 .3.2.6.7.5A10.5 10.5 0 0 0 12 1.5Z"/></svg>
         Edit on GitHub
       </a>
@@ -94,7 +94,7 @@
 <span class="tok-com"># ✓ vllm       started  (loading Qwen2.5-72B-AWQ…)</span>
 <span class="tok-com"># ✓ chromadb   started</span></code></pre>
     </div>
-    <p>Wait for the model to finish loading — first boot can take a few minutes while weights are mapped into GPU memory. Check readiness:</p>
+    <p>Wait for the model to finish loading, first boot can take a few minutes while weights are mapped into GPU memory. Check readiness:</p>
     <div class="code-block">
       <div class="code-head"><span class="code-lang">bash</span><button class="copy-btn" data-copy="docker compose logs -f vllm | grep ready" aria-label="Copy"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button></div>
 <pre><code><span class="tok-cmd">docker</span> compose logs <span class="tok-flag">-f</span> vllm <span class="tok-flag">|</span> grep ready
@@ -104,7 +104,7 @@
     <h2 id="config">2 · Configure the environment</h2>
     <p>Copy the example environment file and point the Wazuh bridge at your SIEM. All values stay local.</p>
     <div class="code-block">
-      <div class="code-head"><span class="code-lang">yaml — .env</span><button class="copy-btn" data-copy-target="#envblock" aria-label="Copy"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button></div>
+      <div class="code-head"><span class="code-lang">yaml - .env</span><button class="copy-btn" data-copy-target="#envblock" aria-label="Copy"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button></div>
 <pre><code id="envblock"><span class="tok-key">WAZUH_API_URL</span>=<span class="tok-str">https://wazuh.internal:55000</span>
 <span class="tok-key">WAZUH_API_USER</span>=<span class="tok-str">soc-bridge</span>
 <span class="tok-key">KAFKA_BROKERS</span>=<span class="tok-str">localhost:9092</span>
@@ -126,7 +126,7 @@
 <span class="tok-com">[respond] </span> playbook #44 · isolate host-04, rotate creds
 <span class="tok-com">[done]    </span> resolved in <span class="tok-num">2.3</span>s</code></pre>
     </div>
-    <p>That's it — the pipeline ingested a Wazuh detection, enriched it with MITRE context, scored confidence above the threshold, and executed a SOAR playbook autonomously.</p>
+    <p>That's it, the pipeline ingested a Wazuh detection, enriched it with MITRE context, scored confidence above the threshold, and executed a SOAR playbook autonomously.</p>
 
     <h2 id="architecture">Pipeline overview</h2>
     <p>AI SOC is a streaming pipeline. Wazuh detections enter Kafka, eight LangGraph agents process them in stages, and approved decisions trigger Shuffle SOAR workflows. Redis holds working state; PostgreSQL stores the audit log.</p>
@@ -158,7 +158,7 @@
   <span class="tok-flag">-H</span> <span class="tok-str">"Content-Type: application/json"</span> \
   <span class="tok-flag">-d</span> <span class="tok-str">'{"rule":"T1059","host":"host-02","severity":"med"}'</span>
 
-<span class="tok-com"># → { "id": "a92c", "decision": "HITL", "confidence": 0.62 }</span></code></pre>
+<span class="tok-com"># -> { "id": "a92c", "decision": "HITL", "confidence": 0.62 }</span></code></pre>
     </div>
 
     <h2 id="deployment">Deployment</h2>
@@ -173,7 +173,7 @@
 
     <div style="margin-top:48px;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
       <span style="color:var(--text-dim);font-size:13px">Was this helpful? Improve it on GitHub.</span>
-      <a class="btn btn--ghost" href="https://github.com" style="padding:9px 15px;font-size:13.5px">Edit this page →</a>
+      <a class="btn btn--ghost" href="https://github.com/amunim12/ai_soc_website" style="padding:9px 15px;font-size:13.5px">Edit this page -></a>
     </div>
   </main>
 </div>

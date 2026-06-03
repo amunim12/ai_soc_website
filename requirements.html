@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>System Requirements &amp; Dependencies — AI SOC</title>
+<title>System Requirements &amp; Dependencies - AI SOC</title>
 <meta name="description" content="System requirements for AI SOC: 64 GB RAM minimum, NVIDIA GPU with 48+ GB VRAM for local LLM inference, Docker 24+, Python 3.11+, and Wazuh 4.7+." />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,26 +19,26 @@
 <header class="site-nav">
   <div class="container">
     <a class="brand" href="index.html"><span class="logo-mark"><span></span></span>AI&nbsp;SOC</a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Main">
       <a href="index.html#features">Features</a>
       <a href="downloads.html">Downloads</a>
       <a href="pricing.html">Pricing</a>
       <a href="docs.html">Docs</a>
     </nav>
     <div class="nav-right">
-      <a class="nav-signin" href="docs.html">Sign in</a>
-      <a class="btn btn--primary" href="downloads.html" style="padding:9px 16px;font-size:13.5px">Download Free</a>
+      <a class="nav-signin" href="https://github.com/amunim12/ai_soc_website">GitHub</a>
+      <a class="btn btn--primary btn--sm" href="downloads.html">Download Free</a>
       <button class="nav-burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
 </header>
-<div class="mobile-drawer">
+<nav class="mobile-drawer" aria-label="Mobile menu">
   <a href="index.html#features">Features</a>
   <a href="downloads.html">Downloads</a>
   <a href="pricing.html">Pricing</a>
   <a href="docs.html">Docs</a>
   <a class="btn btn--primary" href="downloads.html">Download Free</a>
-</div>
+</nav>
 
 <main class="page">
 <!-- HERO -->
@@ -46,11 +46,48 @@
   <canvas data-nodegraph data-density="0.00008" class="ng"></canvas>
   <div class="container" style="position:relative;z-index:2;text-align:center">
     <div class="reveal">
-      <span class="pill pill--cyan"><span class="dot"></span>Self-hosted · on-prem · air-gapped</span>
+      <span class="pill pill--cyan"><span class="dot"></span>Self-hosted - on-prem - air-gapped</span>
       <h1 class="display-h" style="font-size:clamp(36px,4.6vw,54px);font-weight:700;letter-spacing:-0.035em;margin:22px 0 0">System Requirements <span class="grad-text">&amp; Dependencies</span></h1>
       <p class="lead" style="color:var(--text-muted);font-size:18px;max-width:60ch;margin:18px auto 0">
         AI SOC runs a local 72B-parameter model. Provision hardware for inference, then satisfy the software prerequisites before installation.
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK TABS -->
+<section class="container section-pad" style="padding-top:0">
+  <div class="tabs reveal" data-tabs>
+    <div class="tab-list" role="tablist" aria-label="Requirements summary">
+      <button class="tab-btn active" id="req-tab-min" type="button" role="tab" aria-selected="true" aria-controls="req-min" data-tab-target="#req-min">Minimum node</button>
+      <button class="tab-btn" id="req-tab-soft" type="button" role="tab" aria-selected="false" aria-controls="req-soft" data-tab-target="#req-soft">Software</button>
+      <button class="tab-btn" id="req-tab-stack" type="button" role="tab" aria-selected="false" aria-controls="req-stack" data-tab-target="#req-stack">Stack</button>
+    </div>
+    <div class="tab-panels">
+      <div class="tab-panel active" id="req-min" role="tabpanel" aria-labelledby="req-tab-min">
+        <div class="summary-grid">
+          <div class="summary-card"><div class="summary-kicker">Memory</div><div class="summary-value">64 GB minimum</div><div class="summary-note">128 GB recommended for smoother local inference.</div></div>
+          <div class="summary-card"><div class="summary-kicker">GPU</div><div class="summary-value">48 GB VRAM</div><div class="summary-note">NVIDIA RTX 3090 or A100 class hardware.</div></div>
+          <div class="summary-card"><div class="summary-kicker">Storage</div><div class="summary-value">500 GB NVMe</div><div class="summary-note">Fast local storage keeps model load times sane.</div></div>
+          <div class="summary-card"><div class="summary-kicker">Network</div><div class="summary-value">Isolated LAN</div><div class="summary-note">Built for air-gapped, on-prem deployments.</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="req-soft" role="tabpanel" aria-labelledby="req-tab-soft">
+        <div class="summary-grid">
+          <div class="summary-card"><div class="summary-kicker">Runtime</div><div class="summary-value">Docker Desktop 24+</div><div class="summary-note">Needed to run the full Compose stack.</div></div>
+          <div class="summary-card"><div class="summary-kicker">Orchestration</div><div class="summary-value">Docker Compose v2</div><div class="summary-note">Starts Kafka, Redis, PostgreSQL, vLLM, and ChromaDB.</div></div>
+          <div class="summary-card"><div class="summary-kicker">Inference</div><div class="summary-value">CUDA 12.x</div><div class="summary-note">Required for GPU-accelerated local inference.</div></div>
+          <div class="summary-card"><div class="summary-kicker">App</div><div class="summary-value">Python 3.11+, Node 20+</div><div class="summary-note">Backend runtime plus the Electron desktop UI.</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="req-stack" role="tabpanel" aria-labelledby="req-tab-stack">
+        <div class="summary-grid">
+          <div class="summary-card"><div class="summary-kicker">AI / ML</div><div class="summary-value">vLLM, Qwen2.5-72B-AWQ</div><div class="summary-note">Local model serving with grounded retrieval.</div></div>
+          <div class="summary-card"><div class="summary-kicker">Pipeline</div><div class="summary-value">LangGraph, Kafka, Redis</div><div class="summary-note">Stateful event flow with durable message handling.</div></div>
+          <div class="summary-card"><div class="summary-kicker">Data</div><div class="summary-value">PostgreSQL, ChromaDB</div><div class="summary-note">Audit logs and RAG storage stay on-prem.</div></div>
+          <div class="summary-card"><div class="summary-kicker">Response</div><div class="summary-value">Wazuh, Shuffle SOAR</div><div class="summary-note">Detect, enrich, decide, and respond in one loop.</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -66,11 +103,11 @@
       </div>
       <table class="spec-table" style="margin-top:14px">
         <tr><th>OS</th><td>Windows 10/11, Ubuntu 20.04+, macOS 12+</td></tr>
-        <tr><th>CPU</th><td>16-core <span class="rec">· 32-core recommended</span></td></tr>
-        <tr><th>RAM</th><td>64 GB <span class="rec">· 128 GB recommended</span></td></tr>
-        <tr><th>GPU</th><td>NVIDIA RTX 3090 / A100 <span class="rec">· for local LLM</span></td></tr>
+        <tr><th>CPU</th><td>16-core <span class="rec">- 32-core recommended</span></td></tr>
+        <tr><th>RAM</th><td>64 GB <span class="rec">- 128 GB recommended</span></td></tr>
+        <tr><th>GPU</th><td>NVIDIA RTX 3090 / A100 <span class="rec">- for local LLM</span></td></tr>
         <tr><th>Storage</th><td>500 GB NVMe SSD</td></tr>
-        <tr><th>Network</th><td>Isolated LAN <span class="rec">· air-gapped</span></td></tr>
+        <tr><th>Network</th><td>Isolated LAN <span class="rec">- air-gapped</span></td></tr>
       </table>
     </div>
 
@@ -98,7 +135,7 @@
     <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 46px">
       <span class="eyebrow">Under the hood</span>
       <h2 class="h-section">The full technology stack</h2>
-      <p class="sub-section" style="margin-left:auto;margin-right:auto">Every dependency is open-source and runs entirely on-prem — nothing phones home.</p>
+      <p class="sub-section" style="margin-left:auto;margin-right:auto">Every dependency is open-source and runs entirely on-prem, nothing phones home.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px" class="stack-grid">
       <div class="glass reveal" style="padding:24px">
@@ -147,7 +184,7 @@
       <h2 style="font-size:clamp(26px,3.4vw,36px);font-weight:700;letter-spacing:-0.025em;margin:0">Not sure if your system qualifies?</h2>
       <p class="sub-section" style="margin:14px auto 0">Post your hardware spec in GitHub Discussions and the community will help you size your deployment.</p>
       <div style="display:flex;gap:13px;justify-content:center;margin-top:26px;flex-wrap:wrap">
-        <a class="btn btn--primary btn--lg" href="https://github.com">
+        <a class="btn btn--primary btn--lg" href="https://github.com/amunim12/ai_soc_website/discussions">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5A10.5 10.5 0 0 0 8.7 22c.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.7-1.2-4.7-5.2 0-1.1.4-2 1-2.8-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.7.8 1 1.7 1 2.8 0 4-2.4 4.9-4.7 5.2.4.3.7 1 .7 2v3c0 .3.2.6.7.5A10.5 10.5 0 0 0 12 1.5Z"/></svg>
           Ask in GitHub Discussions
         </a>
@@ -164,11 +201,11 @@
       <div class="footer-col">
         <a class="brand" href="index.html" style="margin-bottom:14px"><span class="logo-mark"><span></span></span>AI&nbsp;SOC</a>
         <p style="color:var(--text-muted);font-size:14px;max-width:34ch;margin:0">Autonomous, air-gapped, multi-agent Security Operations Centre for enterprise deployments.</p>
-        <div class="footer-badges" style="margin-top:18px"><span class="pill"><span class="dot" style="background:var(--success);box-shadow:0 0 8px var(--success)"></span>v1.0.0 Stable</span><span class="pill pill--cyan">Apache-2.0</span></div>
+        <div class="footer-badges" style="margin-top:18px"><span class="pill"><span class="dot" style="background:var(--success)"></span>v1.0.0 Stable</span><span class="pill pill--cyan">Apache-2.0</span></div>
       </div>
       <div class="footer-col"><h4>Product</h4><a href="index.html#features">Features</a><a href="downloads.html">Downloads</a><a href="requirements.html">Requirements</a><a href="pricing.html">Pricing</a></div>
-      <div class="footer-col"><h4>Developers</h4><a href="docs.html">Documentation</a><a href="docs.html#architecture">Architecture</a><a href="docs.html#api">API Reference</a><a href="https://github.com">GitHub</a></div>
-      <div class="footer-col"><h4>Company</h4><a href="#">Security</a><a href="#">Compliance</a><a href="https://github.com">Discussions</a><a href="#">Contact Sales</a></div>
+      <div class="footer-col"><h4>Developers</h4><a href="docs.html">Documentation</a><a href="docs.html#architecture">Architecture</a><a href="docs.html#api">API Reference</a><a href="https://github.com/amunim12/ai_soc_website">GitHub</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="requirements.html">Security</a><a href="docs.html#deployment">Compliance</a><a href="https://github.com/amunim12/ai_soc_website/discussions">Discussions</a><a href="pricing.html">Contact Sales</a></div>
     </div>
     <div class="footer-bottom">
       <span class="meta">© 2026 AI SOC. Open-source core under Apache-2.0.</span>
@@ -178,7 +215,7 @@
 </footer>
 
 <style>
-  .stack-chip { font-size: 14px; color: var(--text); padding: 8px 12px; border-radius: 8px; background: var(--bg); border: 1px solid var(--border); font-weight: 500; }
+  .stack-chip { font-size: 12.5px; color: var(--text); padding: 8px 10px; border-radius: 4px; background: rgba(10,12,18,0.9); border: 1px solid rgba(138,154,176,0.14); font-weight: 500; font-family: var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; }
   @media (max-width: 980px) { .stack-grid { grid-template-columns: 1fr 1fr !important; } .container > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; } }
   @media (max-width: 560px) { .stack-grid { grid-template-columns: 1fr !important; } }
 </style>
@@ -186,3 +223,4 @@
 <script src="assets/site.js"></script>
 </body>
 </html>
+
