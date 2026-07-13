@@ -62,10 +62,6 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5 10.5 4.3v7.2H3V5.5Zm0 13L10.5 19.7v-7.1H3v6Zm8.5 1.3L21 21V12.5h-9.5v7.3Zm0-15.6V11.5H21V3l-9.5 1.2Z"/></svg>
             Download for Windows
           </a>
-          <a class="btn btn--ghost btn--lg" href="https://github.com/amunim12/ai_soc_website">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5A10.5 10.5 0 0 0 8.7 22c.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.7-1.2-4.7-5.2 0-1.1.4-2 1-2.8-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.7.8 1 1.7 1 2.8 0 4-2.4 4.9-4.7 5.2.4.3.7 1 .7 2v3c0 .3.2.6.7.5A10.5 10.5 0 0 0 12 1.5Z"/></svg>
-            View on GitHub
-          </a>
         </div>
         <div class="hero-meta mono">
           <span>v1.0.0 - Stable</span><span>·</span>
@@ -86,8 +82,8 @@
               <span class="dot" style="background:var(--success)"></span>8 agents online
             </span>
           </div>
-          <div style="display:grid;grid-template-columns:1.32fr 1fr">
-            <div style="border-right:1px solid var(--border)">
+          <div class="mock-body" style="display:grid;grid-template-columns:1.32fr 1fr">
+            <div class="mock-alerts-col" style="border-right:1px solid var(--border)">
               <div class="mono" style="padding:10px 15px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);border-bottom:1px solid var(--border-soft)">Active alerts</div>
               <div data-alert-feed>
                 <div class="alert-row"><div class="sev" style="background:#ef4444"></div><div style="flex:1;min-width:0"><div style="font-weight:600">Credential dumping - T1003</div><div class="mono" style="color:var(--text-dim);font-size:11px;margin-top:2px">host-04 · 12:40:08</div></div><span class="pill status-tag critical">CRITICAL</span></div>
@@ -95,7 +91,7 @@
                 <div class="alert-row"><div class="sev" style="background:#00d4ff"></div><div style="flex:1;min-width:0"><div style="font-weight:600">Suspicious PowerShell - T1059</div><div class="mono" style="color:var(--text-dim);font-size:11px;margin-top:2px">host-02 · 12:39:33</div></div><span class="pill status-tag med">MED</span></div>
               </div>
             </div>
-            <div style="padding:15px">
+            <div class="mock-pipeline-col" style="padding:15px">
               <div class="mono" style="font-size:11px;color:var(--text-dim);margin-bottom:12px;letter-spacing:0.06em">AGENT PIPELINE</div>
               <div id="pipe"></div>
               <div style="margin-top:12px;padding:11px 13px;border-radius:10px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.22)">
